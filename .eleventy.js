@@ -1,6 +1,10 @@
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  eleventyConfig.addFilter("dateToRfc3339", function(date) {
+    return new Date(date).toISOString();
+  });
+
   eleventyConfig.addFilter("year", function(date) {
     return new Date(date).getFullYear();
   });
@@ -56,6 +60,14 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("infrastructure", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/infrastructure/*.md")
       .sort((a, b) => b.date - a.date);
+  });
+  eleventyConfig.addCollection("allContent", function(collectionApi) {
+    return [
+      ...collectionApi.getFilteredByGlob("src/essays/*.md"),
+      ...collectionApi.getFilteredByGlob("src/discoveries/*.md"),
+      ...collectionApi.getFilteredByGlob("src/protocols/*.md"),
+      ...collectionApi.getFilteredByGlob("src/notes/*.md"),
+    ].sort((a, b) => b.date - a.date);
   });
 
   return {

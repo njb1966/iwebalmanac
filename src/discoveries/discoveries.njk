@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Discoveries
+permalink: /discoveries/
+---
+
+# Discoveries
+
+Editorially framed curation of projects, tools, and ideas that belong to a human-scale web.
+
+{% for post in collections.discoveries %}
+<article>
+  <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+  <p class="post-meta">{{ post.date | dateToFormat("MMMM dd, yyyy") }}</p>
+  {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
+</article>
+{% else %}
+<p>First discovery coming soon.</p>
+{% endfor %}

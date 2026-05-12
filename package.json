@@ -1,0 +1,19 @@
+{
+  "name": "iwebalmanac-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf dist",
+    "deploy": "npm run clean && npm run build && rsync -av --delete dist/ /var/www/iwebalmanac.net/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5"
+  }
+}

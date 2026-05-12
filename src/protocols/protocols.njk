@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Protocols
+permalink: /protocols/
+---
+
+<h1>Protocols</h1>
+
+<p>Writing about the open protocols that make an independent web possible — Gemini, ActivityPub, RSS, Gopher, and the infrastructure beneath them.</p>
+
+{% for post in collections.protocols %}
+<article>
+  <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+  <p class="post-meta">{{ post.date | dateToFormat("MMMM dd, yyyy") }}</p>
+  {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
+</article>
+{% else %}
+<p>First protocol piece coming soon.</p>
+{% endfor %}

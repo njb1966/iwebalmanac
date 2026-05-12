@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang={{ site.language }}>
+<head>
+  <meta charset=utf-8>
+  <meta name=viewport content=width=device-width, initial-scale=1>
+  <title>{% if title %}{{ title }} — {% endif %}{{ site.name }}</title>
+  <meta name=description content={% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}>
+  <link rel=stylesheet href=/assets/css/main.css>
+  <link rel=alternate type=application/rss+xml title={{ site.name }} href=/feed.xml>
+  <link rel=canonical href={{ site.url }}{{ page.url }}>
+</head>
+<body>
+  <header>
+    <div class=masthead>
+      <a href=/ class=site-name>{{ site.name }}</a>
+      <span class=site-tagline>Independent Web Publication</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href=/essays/>Essays</a></li>
+        <li><a href=/discoveries/>Discoveries</a></li>
+        <li><a href=/protocols/>Protocols</a></li>
+        <li><a href=https://notes.iwebalmanac.net>Notes</a></li>
+        <li><a href=/pages/mission/>Mission</a></li>
+        <li><a href=/pages/follow/>Follow</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="site-body">
+    <main>
+      {{ content | safe }}
+    </main>
+    {% include "partials/sidebar.njk" %}
+  </div>
+  <footer>
+    <p>{{ site.name }} — No ads. No analytics. No third-party JavaScript.</p>
+    <p>
+      <a href=/feed.xml>RSS</a> ·
+      <a href={{ site.fediverse }}>ActivityPub</a> ·
+      <a href={{ site.gemini }}>Gemini</a>
+    </p>
+  </footer>
+</body>
+</html>

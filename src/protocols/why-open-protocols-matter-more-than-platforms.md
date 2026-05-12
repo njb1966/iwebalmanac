@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: Why Open Protocols Matter More Than Platforms
+description: "Protocols don't feel permanent. They feel boring. That's actually the point."
+date: 2026-05-12
+---
+
+Every few years, a platform rises far enough that it starts to feel like infrastructure. It gets big enough that you assume it will just be there, the way roads are there, the way electricity is there. And then it isn't, or it changes in ways that break the thing you built on top of it, or it gets acquired, or the economics shift and suddenly the free tier isn't free and the API that your tools depended on costs more than your entire operation is worth.
+
+This has happened enough times that it shouldn't surprise anyone. And yet it keeps surprising people, because the platforms are good at feeling permanent while they're ascendant.
+
+Protocols don't feel permanent. They feel boring. That's actually the point.
+
+A protocol is an agreement about how things talk to each other. It doesn't have a business model. It doesn't have a growth team. It doesn't need to monetize your attention to justify its continued existence. HTTP just moves documents. SMTP just moves email. RSS just describes a feed of content in a format that any reader can parse. The protocol doesn't care who implements it or where it runs or whether the company that originally championed it is still around. If the spec is public and the software is open, the protocol outlives everyone involved in creating it.
+
+Email is the clearest example because it's old enough to have survived everything. The companies that dominated email in 1995 are gone. The webmail giants of 2005 have come and gone. The platforms that were going to replace email have mostly failed or become something else. Email is still here, still federated, still running on SMTP the way it always did. You can send an email from a server you run yourself to any other email address in the world and it works, because the protocol is the contract and everyone honors the contract. There's no company in the middle whose continued willingness to facilitate the exchange is a precondition.
+
+That's an extraordinary thing when you actually stop and look at it.
+
+RSS is the example people are most wrong about. It was declared dead when Google shut down Google Reader in 2013, which turned out to mean that one company's reader was dead and that many people confused the product with the protocol. RSS didn't die. Millions of people still use it. It is still the most reliable way to follow a publication without that publication's distribution being mediated by someone else's feed algorithm. The content shows up in the order it was published. Nobody has boosted it or buried it based on engagement predictions. The writer published a thing and the reader got the thing. That directness is rarer than it used to be and more valuable as a result.
+
+ActivityPub is newer and solves a harder problem. Federated social networking requires more coordination than simple feed syndication because it involves identity, replies, follows, and real-time interaction between servers that don't know about each other in advance. ActivityPub is the protocol that makes Mastodon instances talk to Pixelfed instances talk to other implementations that haven't been built yet. The practical result is that your account on one server can interact with accounts on any other server running the protocol, without anyone's permission, without API keys, without a business relationship between the platforms. The social graph belongs to the participants rather than to a central authority that can sell it, lose it, or make it unavailable when the terms change.
+
+Webmention is smaller in scope and underappreciated. It's a way for one website to notify another that it has linked to it, so that comments, reactions, and references from across the web can surface on the original post without requiring everyone to be on the same platform. It puts conversation back on the open web instead of inside walled gardens where the original author can't see it and has no ownership over it. The idea of the web as a linked, conversational medium rather than a collection of isolated silos is exactly what Webmention enables, quietly, without anyone needing to install anything or sign up for anything.
+
+Gemini is the outlier on this list, the protocol that makes people either curious or impatient depending on their disposition. It's a lightweight alternative to HTTP that strips the web down to text and links and almost nothing else. No tracking, no JavaScript, no cookies, no bloat. The use case is narrow: people who want to read and write on a network where the design decisions have been made in favor of simplicity and against the commercial web's accumulated complexity. It's not going to replace HTTP. That's not what it's for. What it demonstrates is that protocols can be built with specific values embedded in their constraints, and that there's an audience for a network that behaves differently because it was designed differently.
+
+The interoperability that open protocols enable is not a feature in the product-roadmap sense. It's a structural property of the network. When the tools you use speak standard protocols, switching costs collapse. If your email host becomes unusable, you move your domain to another host and nothing changes for the people emailing you. If your ActivityPub instance closes, you migrate your account and take your follows with you. If the RSS reader you've used for years shuts down, you export your subscriptions and import them somewhere else in five minutes. The investment you made in building an audience or a workflow is portable because it was built on a protocol rather than locked into a platform.
+
+Platform lock-in isn't usually the result of malice. It's the result of incentives. Platforms benefit from switching costs, so they don't design for portability. The contacts you've built, the history you've accumulated, the integrations you've created tend to stay with the platform rather than travel with you, because making it easy to leave would be bad for retention. This isn't a conspiracy. It's just what happens when the organization providing the service has interests that diverge from yours in this specific way.
+
+Open protocols invert the relationship. The protocol exists to move information between systems reliably and openly. That's the whole job. There's no retention strategy built into SMTP, no engagement optimization in RSS, no lock-in mechanism in ActivityPub. You can leave any particular implementation without losing access to the network the protocol connects you to.
+
+That's the thing worth understanding about why this matters. It's not that platforms are bad and protocols are good. Some platforms are fine. Many of them are useful. The question is what happens when they stop being fine, when the economics change or the priorities shift or the company fails or simply decides to do something different. With a platform, that question has an answer that depends entirely on decisions made by someone else. With a protocol, the question barely makes sense, because the protocol isn't a company and it doesn't have a pivot coming.
+
+The web that runs on open protocols is a more durable web. Not more convenient, not better designed, not easier to use out of the box. More durable. The distinction matters because durability is what makes a publishing medium worth investing in. You build on things that will still be there. The protocols will be there.
+
+The platforms, as the historical record keeps showing, are another matter.

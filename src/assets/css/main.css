@@ -1,0 +1,300 @@
+:root {
+  --bg: #f4f1ec;
+  --text: #1e1e1e;
+  --muted: #6b6560;
+  --accent: #8b1a1a;
+  --border: #c8c0b8;
+  --max-width: 75ch;
+  --font: Georgia, 'Palatino Linotype', Palatino, serif;
+  --font-ui: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1714;
+    --text: #e8e4dc;
+    --muted: #9a948e;
+    --accent: #c97070;
+    --border: #302b28;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Header / Masthead ─────────────────────────────────── */
+
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem 0;
+}
+
+header .masthead {
+  max-width: calc(75ch + 280px + 3rem);
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--accent);
+}
+
+.site-name {
+  display: block;
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 1.9rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.site-name:hover { color: var(--accent); }
+
+.site-tagline {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+header nav {
+  max-width: calc(75ch + 280px + 3rem);
+  margin: 0 auto;
+  padding: 0.6rem 0;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+header nav ul a {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+header nav ul a:hover { color: var(--accent); }
+
+/* ── Site body grid ────────────────────────────────────── */
+
+.site-body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  max-width: calc(75ch + 280px + 3rem);
+  margin: 3rem auto;
+  padding: 0 2rem;
+  align-items: start;
+}
+
+main {
+  min-width: 0; /* prevent grid blowout */
+}
+
+/* ── Sidebar ───────────────────────────────────────────── */
+
+.sidebar {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebar-section {
+  border-top: 2px solid var(--accent);
+  padding-top: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.sidebar-section h3 {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 0.75rem 0;
+  border-left: none;
+  padding-left: 0;
+}
+
+.sidebar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-links li {
+  margin-bottom: 0.4rem;
+}
+
+.sidebar-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+.sidebar-links a:hover {
+  color: var(--accent);
+}
+
+.sidebar-note {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+.sidebar-webrings .badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 0.5rem;
+}
+
+.sidebar-webrings img {
+  display: block;
+  image-rendering: pixelated;
+}
+
+/* Mobile: stack sidebar below content */
+@media (max-width: 720px) {
+  .site-body {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .sidebar {
+    position: static;
+    border-top: 2px solid var(--border);
+    padding-top: 1.5rem;
+  }
+}
+
+/* ── Typography ────────────────────────────────────────── */
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Section headings inside article content get a left-rule treatment */
+article h2,
+article h3 {
+  border-left: 3px solid var(--accent);
+  padding-left: 0.75rem;
+  margin-left: -0.75rem;
+}
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+/* ── Horizontal rule ───────────────────────────────────── */
+
+hr {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* ── Post meta ─────────────────────────────────────────── */
+
+.post-meta {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Post listing ──────────────────────────────────────── */
+
+article + article {
+  border-top: 1px solid var(--border);
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+/* Date label above title on listing pages */
+.post-date-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+
+footer {
+  max-width: calc(75ch + 280px + 3rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-top: 3px solid var(--accent);
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 5rem;
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+footer a:hover { color: var(--accent); }
+
+/* ── Focus ─────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

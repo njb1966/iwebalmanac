@@ -1,0 +1,11 @@
+{
+  "name": "Independent Web Almanac",
+  "domain": "iwebalmanac.net",
+  "url": "https://iwebalmanac.net",
+  "description": "A human-first publication about independent infrastructure, intentional technology, and the web as a place people can still own.",
+  "mission": "The web should remain a human place: owned by individuals, built with intention, and enhanced by technology rather than dominated by platforms, algorithms, or synthetic engagement.",
+  "author": "Independent Web Almanac",
+  "language": "en",
+  "fediverse": "https://notes.iwebalmanac.net",
+  "gemini": "gemini://gemini.iwebalmanac.net"
+}

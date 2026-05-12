@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+
+<h1>{{ site.name }}</h1>
+<p>{{ site.mission }}</p>
+
+<p>Independent Web Almanac is a self-hosted publication about human-scale technology, independent infrastructure, protocol literacy, digital ownership, and deliberate use of modern tools.</p>
+
+{% if collections.essays.length %}
+<section>
+  <h2>Latest Essay</h2>
+  {% set latest = collections.essays[0] %}
+  <article>
+    <h3><a href="{{ latest.url }}">{{ latest.data.title }}</a></h3>
+    <p class="post-meta">{{ latest.date | dateToFormat("MMMM dd, yyyy") }}</p>
+    <p>{{ latest.data.description }}</p>
+  </article>
+</section>
+{% endif %}
+
+{% if collections.discoveries.length %}
+<section>
+  <h2>Latest Discovery</h2>
+  {% set latest = collections.discoveries[0] %}
+  <article>
+    <h3><a href="{{ latest.url }}">{{ latest.data.title }}</a></h3>
+    <p class="post-meta">{{ latest.date | dateToFormat("MMMM dd, yyyy") }}</p>
+    <p>{{ latest.data.description }}</p>
+  </article>
+</section>
+{% endif %}
+
+<section>
+  <h2>Follow</h2>
+  <ul>
+    <li><a href="/feed.xml">RSS feed</a></li>
+    <li><a href="{{ site.fediverse }}">ActivityPub / WriteFreely</a></li>
+    <li><a href="{{ site.gemini }}">Gemini capsule</a></li>
+  </ul>
+</section>

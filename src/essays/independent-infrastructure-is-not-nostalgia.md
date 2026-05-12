@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 title: Independent Infrastructure Is Not Nostalgia
 description: Self-hosting is not retro cosplay. Owning your infrastructure is a design decision about resilience, dependency, and what the web becomes.
-date: 2026-05-12
+date: 2026-05-11
 ---
 
 Let me get something out of the way first.

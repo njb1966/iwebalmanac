@@ -4,7 +4,6 @@ title: Follow
 permalink: /pages/follow/
 ---
 
-# Follow
 
 **RSS:** [https://iwebalmanac.net/feed.xml](/feed.xml)
 

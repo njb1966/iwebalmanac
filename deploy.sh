@@ -12,8 +12,10 @@ rsync -av --delete \
   --exclude='dist' \
   --exclude='.git' \
   --exclude='.claude' \
+  --exclude='.env' \
+  --exclude='.posted-slugs.json' \
   "${LOCAL_DIR}/" "${REMOTE_HOST}:${REMOTE_SITE}/"
 
 echo "==> Building and deploying on ${REMOTE_HOST}..."
-ssh "$REMOTE_HOST" "cd ${REMOTE_SITE} && npm run build && node scripts/build-gemini.js && rsync -av --delete dist/ ${REMOTE_WWW}"
+ssh "$REMOTE_HOST" "cd ${REMOTE_SITE} && npm run build && node scripts/build-gemini.js && node scripts/post-to-fediverse.js && rsync -av --delete dist/ ${REMOTE_WWW}"
 echo "==> Deploy complete."

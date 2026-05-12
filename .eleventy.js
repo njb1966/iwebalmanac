@@ -1,6 +1,11 @@
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  eleventyConfig.addFilter("dateToFormat", function(date, format) {
+    const d = new Date(date);
+    return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  });
+
   eleventyConfig.addCollection("essays", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/essays/*.md")
       .sort((a, b) => b.date - a.date);

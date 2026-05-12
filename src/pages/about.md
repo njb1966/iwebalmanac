@@ -4,7 +4,6 @@ title: About
 permalink: /pages/about/
 ---
 
-# About
 
 Independent Web Almanac is written from the perspective of an experienced internet native with an infrastructure mindset.
 

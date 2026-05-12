@@ -4,7 +4,6 @@ title: Mission
 permalink: /pages/mission/
 ---
 
-# Mission
 
 The web should remain a human place: owned by individuals, built with intention, and enhanced by technology rather than dominated by platforms, algorithms, or synthetic engagement.
 

@@ -4,15 +4,21 @@ title: Essays
 permalink: /essays/
 ---
 
+<p>Longform writing about independent infrastructure, the human web, intentional technology, and protocol literacy.</p>
 
-Longform writing about independent infrastructure, the human web, intentional technology, and protocol literacy.
-
-{% for post in collections.essays %}
-<article>
-  <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-  <p class="post-meta">{{ post.date | dateToFormat("MMMM dd, yyyy") }}</p>
-  {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
-</article>
+{% if collections.essays.length %}
+  {% set grouped = collections.essays | groupByYear %}
+  {% for group in grouped %}
+    <h2>{{ group.year }}</h2>
+    <ul class="archive-list">
+    {% for post in group.posts %}
+      <li>
+        <span class="archive-date">{{ post.date | dateToFormat("MMM d") }}</span>
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
 {% else %}
-<p>First essay coming soon.</p>
-{% endfor %}
+  <p>First essay coming soon.</p>
+{% endif %}

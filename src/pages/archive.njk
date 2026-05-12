@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: Archive
+permalink: /archive/
+---
+
+<p>All published content in reverse-chronological order.</p>
+
+{% set allContent = [] %}
+{% for post in collections.essays %}
+  {% set allContent = (allContent.concat([{title: post.data.title, url: post.url, date: post.date, section: "Essay"}])) %}
+{% endfor %}
+{% for post in collections.discoveries %}
+  {% set allContent = (allContent.concat([{title: post.data.title, url: post.url, date: post.date, section: "Discovery"}])) %}
+{% endfor %}
+{% for post in collections.protocols %}
+  {% set allContent = (allContent.concat([{title: post.data.title, url: post.url, date: post.date, section: "Protocol"}])) %}
+{% endfor %}
+
+{% set sortedContent = allContent | sort(true, false, "date") %}
+
+{% if sortedContent.length %}
+  {% set grouped = sortedContent | groupByYearRaw %}
+  {% for group in grouped %}
+    <h2>{{ group.year }}</h2>
+    <ul class="archive-list">
+    {% for item in group.items %}
+      <li>
+        <span class="archive-date">{{ item.date | dateToFormat("MMM d") }}</span>
+        <span class="archive-label">{{ item.section }}</span>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+{% else %}
+  <p>Nothing published yet.</p>
+{% endif %}

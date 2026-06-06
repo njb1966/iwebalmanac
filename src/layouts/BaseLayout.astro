@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+import { sections } from "../lib/sections.js";
+
+const {
+  title = "Independent Web Almanac",
+  description = "An editorial publication about human-guided creative work.",
+  bodyClass = "",
+} = Astro.props;
+
+const siteTitle = title === "Independent Web Almanac"
+  ? title
+  : `${title} | Independent Web Almanac`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="alternate" type="application/rss+xml" title="Independent Web Almanac RSS" href="/rss.xml" />
+  </head>
+  <body class={bodyClass}>
+    <div class="site-frame">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Independent Web Almanac home">
+          <span class="brand-mark">IWA</span>
+          <span class="brand-name">Independent Web Almanac</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          {sections.map((section) => (
+            <a href={`/${section.id}/`}>{section.label}</a>
+          ))}
+          <a href="/about/">About</a>
+          <a href="/follow/">Follow</a>
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <strong>Independent Web Almanac</strong>
+          <p>Human-guided creative work, published with care.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="/editorial-philosophy/">Editorial Philosophy</a>
+          <a href="/rss.xml">RSS</a>
+          <a href="/humans.txt">Humans</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

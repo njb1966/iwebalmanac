@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentCard from "../../components/ContentCard.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import { getPublishedSectionEntries } from "../../lib/content.js";
+import { getSection, sections } from "../../lib/sections.js";
+
+export function getStaticPaths() {
+  return sections.map((section) => ({
+    params: { section: section.id },
+    props: { section },
+  }));
+}
+
+const { section } = Astro.props;
+const entries = await getPublishedSectionEntries(section.id);
+---
+
+<BaseLayout title={section.label} description={section.description}>
+  <SectionHeader eyebrow="Section" title={section.label} description={section.description} />
+
+  {entries.length ? (
+    <section class="listing" aria-label={`${section.label} entries`}>
+      {entries.map((item) => <ContentCard item={item} />)}
+    </section>
+  ) : (
+    <section class="empty-state empty-state--wide">
+      <h2>No published {section.label.toLowerCase()} yet.</h2>
+      <p>
+        This section is part of the v1 publication structure. Entries marked
+        as drafts stay out of the public site until they are ready.
+      </p>
+    </section>
+  )}
+</BaseLayout>

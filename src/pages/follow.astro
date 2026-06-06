@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+---
+
+<BaseLayout
+  title="Follow"
+  description="How to follow Independent Web Almanac."
+>
+  <SectionHeader
+    eyebrow="Follow"
+    title="Read without accounts, tracking, or platform dependency."
+    description="RSS is the first distribution channel for v1. Newsletter support is a future option, not a launch dependency."
+  />
+
+  <section class="page-copy">
+    <h2>Feeds</h2>
+    <p>
+      Subscribe to the full publication feed:
+      <a href="/rss.xml">https://iwebalmanac.net/rss.xml</a>
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Contact information can be added here when the publication is ready to
+      receive reader mail, interview pitches, or commissioned work inquiries.
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,128 @@
+Independent Web Almanac Two-Month Plan
+======================================
+
+Timeframe: June 2026 through July 2026
+
+Goal: prove the publication can publish consistently before adding more
+infrastructure or workflows.
+
+
+June 2026: Foundation and First Issue
+-------------------------------------
+
+Week 1: Site Readiness
+
+- Review live site copy: Home, About, Editorial Philosophy, Follow.
+- Tighten visual/layout issues after viewing on desktop and mobile.
+- Add contact method to Follow page if ready.
+- Confirm RSS feed URL and sitemap are correct.
+- Add a short internal checklist for publishing each new piece.
+
+
+Week 2: Editorial Pipeline
+
+- Define working standards for each section:
+  - Fiction: what qualifies for publication.
+  - Essays: voice, length, topics.
+  - Reviews: review criteria and structure.
+  - Interviews: question format.
+  - Resources: practical usefulness standard.
+- Create reusable Markdown starter drafts for:
+  - Essay.
+  - Review.
+  - Interview.
+  - Fiction.
+  - Resource.
+- Draft a simple editorial calendar for June and July.
+
+
+Week 3: First Content Batch
+
+- Write and publish first essay.
+- Write and publish first review.
+- Draft second essay.
+- Draft one resource article.
+- Verify published pieces appear correctly on:
+  - Homepage.
+  - Section pages.
+  - RSS.
+  - Sitemap.
+
+
+Week 4: First Issue Shape
+
+- Publish second essay.
+- Publish one resource article if ready.
+- Decide whether the first fiction piece is ready or should wait.
+- Review the homepage with real content and adjust hierarchy if needed.
+- Note what felt slow or awkward in the publishing process.
+
+
+July 2026: Cadence and Editorial Voice
+--------------------------------------
+
+Week 5: Review and Adjust
+
+- Review first month's publishing workflow.
+- Update HOWTO.txt if anything was unclear.
+- Refine frontmatter conventions if needed.
+- Decide whether "featured" should mean newest lead or editor-selected lead.
+
+
+Week 6: Second Content Batch
+
+- Draft and publish one essay.
+- Draft and publish one review.
+- Begin preparing first interview or interview format.
+- Create a backlog of 6 to 10 article ideas across sections.
+
+
+Week 7: Reader Infrastructure
+
+- Improve Follow page with final RSS language.
+- Add contact information if not already added.
+- Decide whether newsletter stays future-only or gets a placeholder.
+- Check live site from a feed reader.
+- Confirm search engines can crawl the site.
+
+
+Week 8: Month Two Close
+
+- Publish second July essay.
+- Publish interview if ready, otherwise queue it for August.
+- Review whether monthly cadence is sustainable:
+  - Two essays.
+  - One review.
+  - Quarterly interview.
+  - Fiction and resources as available.
+- Write a short internal retrospective:
+  - What content was easiest to produce?
+  - What took too long?
+  - Which section feels strongest?
+  - What should not be built yet?
+
+
+Do Not Build Yet
+----------------
+
+- Submissions system.
+- Contributor directory.
+- Newsletter platform.
+- Comments.
+- Accounts.
+- Forums or community features.
+- Anthology infrastructure.
+- Database-backed workflow.
+
+
+Success By End Of July
+----------------------
+
+- Four essays published or drafted.
+- Two reviews published or drafted.
+- One resource article published or drafted.
+- Interview format defined.
+- RSS working.
+- Publishing workflow documented.
+- Site design tested with real content.
+- Clear August editorial calendar.

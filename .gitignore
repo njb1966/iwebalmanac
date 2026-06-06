@@ -1,3 +1,7 @@
 node_modules/
 dist/
+_site/
+.astro/
 .claude/
+old_planning/
+original_site/

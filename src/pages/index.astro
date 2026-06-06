@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentCard from "../components/ContentCard.astro";
+import { getFeaturedEntry, getPublishedEntries } from "../lib/content.js";
+import { sections } from "../lib/sections.js";
+import issueFront from "../assets/images/issue-front.png";
+
+const entries = await getPublishedEntries();
+const featured = getFeaturedEntry(entries);
+const recent = featured ? entries.filter((item) => item !== featured).slice(0, 6) : [];
+---
+
+<BaseLayout
+  title="Independent Web Almanac"
+  description="An editorial publication about human-guided creative work, writing craft, reviews, interviews, and independent publishing."
+  bodyClass="home"
+>
+  <section class="front-page">
+    <div class="front-page__masthead">
+      <p class="dateline">Independent Web Almanac / First Quarter</p>
+      <h1>Writing, craft, and human-guided creative work.</h1>
+      <p>
+        A small editorial publication for fiction, essays, reviews,
+        interviews, and practical resources. The primary artifact is writing:
+        selected, edited, preserved, and made easy to read.
+      </p>
+    </div>
+
+    <aside class="front-page__note" aria-label="Editorial note">
+      <img src={issueFront.src} alt="A simple printed issue front for Independent Web Almanac" width="1200" height="800" />
+      <p>
+        A reader's front page for new fiction, essays, reviews, interviews,
+        and working notes on the craft of making things well.
+      </p>
+    </aside>
+  </section>
+
+  <section class="edition-layout" aria-label="Featured and recent publications">
+    <div class="lead-column">
+      <p class="rubric">Lead Article</p>
+      {featured ? (
+        <ContentCard item={featured} />
+      ) : (
+        <div class="empty-state">
+          <h2>The first issue is being assembled.</h2>
+          <p>
+            The publication structure is ready. Finished fiction, essays,
+            reviews, interviews, and resources will appear here when they are
+            ready to stand in the archive.
+          </p>
+        </div>
+      )}
+    </div>
+
+    <div class="side-column">
+      <p class="rubric">Latest</p>
+      {recent.length ? (
+        <div class="stack">
+          {recent.map((item) => <ContentCard item={item} compact />)}
+        </div>
+      ) : (
+        <p class="muted">
+          New entries will be listed here after the first pieces are released.
+        </p>
+      )}
+    </div>
+  </section>
+
+  <section class="departments" aria-labelledby="sections-heading">
+    <div class="departments__heading">
+      <p class="rubric">Departments</p>
+      <h2 id="sections-heading">Five ways into the archive.</h2>
+    </div>
+    <div class="department-list">
+      {sections.map((section) => (
+        <a class="department-row" href={`/${section.id}/`}>
+          <h3>{section.label}</h3>
+          <p>{section.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

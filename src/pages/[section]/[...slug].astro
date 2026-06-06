@@ -1,0 +1,51 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { entryUrl, formatDate, getPublishedEntries } from "../../lib/content.js";
+import { getSection } from "../../lib/sections.js";
+
+export async function getStaticPaths() {
+  const entries = await getPublishedEntries();
+
+  return entries.map((item) => ({
+    params: { section: item.section, slug: item.entry.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item.entry);
+const data = item.entry.data;
+const section = getSection(item.section);
+---
+
+<BaseLayout title={data.title} description={data.description} bodyClass="article-page">
+  <article class="article">
+    <header class="article-header">
+      <p class="eyebrow"><a href={`/${item.section}/`}>{section?.singular || item.section}</a></p>
+      <h1>{data.title}</h1>
+      <p>{data.description}</p>
+      <div class="article-meta">
+        <time datetime={data.date.toISOString()}>{formatDate(data.date)}</time>
+        {data.author && <span>By {data.author}</span>}
+        {!data.author && data.editor && <span>Edited by {data.editor}</span>}
+      </div>
+    </header>
+
+    {(data.processNote || data.disclosure) && (
+      <aside class="article-note" aria-label="Editorial note">
+        {data.processNote && <p><strong>Process note:</strong> {data.processNote}</p>}
+        {data.disclosure && <p><strong>Disclosure:</strong> {data.disclosure}</p>}
+      </aside>
+    )}
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <footer class="article-footer">
+      <a href={`/${item.section}/`}>More {section?.label || item.section}</a>
+      <a href="/rss.xml">Subscribe via RSS</a>
+    </footer>
+  </article>
+</BaseLayout>
